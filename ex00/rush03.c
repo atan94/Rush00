@@ -6,7 +6,7 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 23:38:45 by amtan             #+#    #+#             */
-/*   Updated: 2025/07/27 02:43:28 by amtan            ###   ########.fr       */
+/*   Updated: 2025/07/27 13:57:43 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,26 @@ void	print_row(int last_col, char first_char, char mid_char, char last_char)
 	ft_putchar('\n');
 }
 
+int	is_zero_or_negative(int x, int y)
+{
+	if (x <= 0 || y <= 0)
+	{
+		write(2, "Error: Both x and y must be ", 28);
+		write(2, "non-zero positive integers.\n", 28);
+		return (1);
+	}
+	else
+		return (0);
+}
+
 void	rush(int x, int y)
 {
 	int	current_row;
 	int	last_col;
 	int	last_row;
 
-	if (x <= 0 || y <= 0)
-	{
-		write(2, "Error: Both x and y must be ", 28);
-		write(2, "non-zero positive integers.\n", 28);
+	if (is_zero_or_negative(x, y) == 1)
 		return ;
-	}
 	current_row = 1;
 	last_col = x;
 	last_row = y;
